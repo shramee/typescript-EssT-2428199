@@ -1,6 +1,9 @@
 function query<T>(
     items: T[],
-    query: any // <--- replace this!
+	query?: {
+		[Prop in keyof T]: ( Prop: T[Prop] ) => boolean
+	},
+    queryHalfSolved?: Partial< Record<keyof T, ( x: T[keyof T] ) => boolean >>, // <--- replace this!
 ) {
     return items.filter(item => {
         // iterate through each of the item's properties
@@ -27,5 +30,5 @@ const matches = query(
     ],
     {
         name: name => name === "Angie",
-        age: age => age > 30
+        age: age => age > 30,
     })
