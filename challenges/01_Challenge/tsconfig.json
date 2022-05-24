@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"checkJs": true,
+		"watch": true,
+		"target": "ESNext",
+		"noEmit": true
+	},
+	"include": ["."]
+}
